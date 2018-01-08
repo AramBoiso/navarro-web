@@ -1,0 +1,8 @@
+ .aHover:hover{
+    background-color: gray;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+}

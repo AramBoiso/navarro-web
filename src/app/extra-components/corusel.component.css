@@ -1,0 +1,13 @@
+img{
+
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+}
+
+footer{
+background: black;
+height: 30px;
+width: 100%;
+}
