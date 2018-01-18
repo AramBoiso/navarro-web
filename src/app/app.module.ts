@@ -24,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { FooterComponent } from './extra-components/footer.component';
 import { LoginService } from './services/login.service';
+import { Sucursal2Component } from './admin/sucursal-2/sucursal-2.component';
 
 
 
@@ -51,7 +52,8 @@ var config = {
     MontajesComponent,
     AdminComponent,
     ModalComponent,
-    FooterComponent
+    FooterComponent,
+    Sucursal2Component
   ],
   imports: [
     BrowserModule,

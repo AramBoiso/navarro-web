@@ -1,67 +1,60 @@
 import { Component} from '@angular/core';
 
 import { AngularFireDatabase } from 'angularfire2/database';
-
-import {LoginService} from '../services/login.service';
-
-
-
-
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  templateUrl: './sucursal-2.component.html',
+  styleUrls: ['./sucursal-2.component.css']
 })
-export class AdminComponent {
+export class Sucursal2Component {
 
-    // OTROS
+    // OTHERS
     title:string; 
     showTable:boolean;
-    restante:number;
+    abono:number;
     
 
-    // BOTONES  
+    // BUTTONS  
     buttonOcultTable:boolean;
     buttonViewTable:boolean;
     buttonToUpDate:boolean;
     buttonAdd:boolean;
 
-    // Registros
+    // REGISTER
     compras: any;
     compra:any;
     editing:boolean;
 
-    // Fecha
+    // DATE
     day:any;
     month:any;
     year:any;
     months:any[];
     date:any;
 
-    // LOGIN
-    email:any;
-    password:any;
+
 
   constructor(public afDB: AngularFireDatabase, public lS:LoginService) { 
 
-            // EXTRAS
+            // OTHERS
         this.title = "Agregar Compra";
         this.showTable = true;
         this.editing = false;
      
-           //  BOTONES
+           //  BUTTONS
       this.buttonOcultTable = true;
       this.buttonViewTable = false;
       this.buttonAdd = false;
       this.buttonToUpDate = true;
 
-         // Registros
-    //  this.compras = [];
+         // REGISTERS
+
       this.compra = {
-                      id:null, fecha: null, nombre: null, telefono: null, 
-                      paquete: null, costo:  null, abono: null, tipo: null,
-                      sucursal: 'sucursal 1', restante: null
+           id:null, date: null, name: null, phone: null, 
+           package: null, cost: null, payment: null, type: null,
+           subsidiary: 'sucursal 2',residuary: null
       };
 
       this.getCompras()
@@ -71,20 +64,14 @@ export class AdminComponent {
           }
         );
       
-      // OBTENER FECHA
+      // GET DATE
       this.getDate();
       
   }
 
-    // METODOS DEL LOGIN
 
-        logIn(){
-          this.lS.email = this.email;
-          this.lS.password = this.password;
-          this.lS.login();
-        }
 
-    //  OBTENER FECHA  
+    //  METHOD FOR DATE GET 
        getDate(){
         this.months = ['01', '02', '03', '04', '05',, '06', '07', '08', '09', '10', '11', '12'];
         this.day = new Date().getDate();
@@ -98,16 +85,14 @@ export class AdminComponent {
       // METODOS DEL REGISTRO  
 
         getCompras(){
-          return this.afDB.list('/registros').valueChanges();
+          return this.afDB.list('/sucursal2').valueChanges();
         }
       
         add(){
            this.compra.id = Date.now();
-           this.compra.fecha = this.getDate();
-           this.compra.restante = this.compra.costo -  this.compra.abono;
-           this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
-           
-          // this.restante = this.compra.costo - this.compra.abono;
+           this.compra.date = this.getDate();
+           this.compra.residuary = this.compra.cost -  this.compra.payment;
+           this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
            this.clean();
         }
 
@@ -120,9 +105,8 @@ export class AdminComponent {
         }
 
         toUpDate(){
-          if(this.editing){ 
-            this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
-          
+          if(this.editing){      
+            this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
           }
           this.buttonToUpDate = true;
           this.buttonAdd = false;
@@ -133,7 +117,7 @@ export class AdminComponent {
         remove(i){
           var answer = confirm('Estas seguro de eliminar el registro?');
           if(answer){
-            this.afDB.database.ref('registros/'+this.compras[i].id).remove();
+            this.afDB.database.ref('sucursal2/'+this.compras[i].id).remove();
            //this.compras.splice(i,1);
           }
         }
@@ -163,10 +147,9 @@ export class AdminComponent {
 
       clean(){
         this.compra = {
-          fecha: null, nombre: null, telefono: null, 
-          paquete: null, costo: null, abono: null, tipo:null,
-          sucursal:'sucursal 1', restante: null
-
+          id:null, date: null, name: null, phone: null, 
+          package: null, cost: null, payment: null, type: null,
+          subsidiary: 'sucursal 2',residuary: null
         }; 
       }
 

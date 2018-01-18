@@ -25,20 +25,23 @@
                       Mas
                     </a>
                     <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item aHover text-light">
+                        <a class="dropdown-item aHover text-light" routerLink="admin">
+                            <i class="fa fa-home mr-2"></i>
+                            Sucursal 1
+                          </a>
+                          <hr>
+                        <a class="dropdown-item aHover text-light" routerLink="admin/sucursal-2">
                           <i class="fa fa-home mr-2"></i>
                           Sucursal 2
                         </a>
                         <hr>
-                      <a class="dropdown-item dH text-light" (click)="this.lS.logOut()"><i class="fa fa-sign-out mr-2"></i>LogOut</a>
+                      <a class="dropdown-item dH text-light" (click)="this.lS.logOut()">
+                        <i class="fa fa-sign-out mr-2"></i>
+                        Cerrar Sesión
+                      </a>
                     </div>
                 </div>
               
-        </div>
-
-         
+        </div>        
     </div>
-
-  
-    
   </nav>
