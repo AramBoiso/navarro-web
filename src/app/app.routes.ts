@@ -6,6 +6,7 @@ import { PaquetesEscolaresComponent } from './paquetes-escolares/paquetes-escola
 import { IdentificacionComponent } from './identificacion/identificacion.component';
 import { SesionesComponent } from './sesiones/sesiones.component';
 import { MontajesComponent } from './montajes/montajes.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes:Routes = [
@@ -13,7 +14,8 @@ const appRoutes:Routes = [
     {path: 'paquetes-escolares', component:PaquetesEscolaresComponent},
     {path: 'identificacion', component:IdentificacionComponent},
     {path: 'sesiones', component:SesionesComponent},
-    {path: 'montajes', component:MontajesComponent}
+    {path: 'montajes', component:MontajesComponent},
+    {path: 'admin', component:AdminComponent},
   ];
 
   export const routes:ModuleWithProviders = RouterModule.forRoot(appRoutes);

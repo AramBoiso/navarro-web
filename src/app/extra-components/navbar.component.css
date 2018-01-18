@@ -1,8 +1,16 @@
  .aHover:hover{
     background-color: gray;
+    cursor: pointer;
 }
 
 img{
-    width: 30px;
-    height: 30px;
+    width: 185px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.dH:hover{
+    background-color: #dc3545;
+    cursor: pointer;
+    border-radius: 5px;
 }

@@ -3,8 +3,7 @@
 
           <!-- Logo y Titulo -->
       <a class="navbar-brand" routerLink="">
-          <img src="../assets/logo.jpg" class="d-inline-block align-top" alt="">
-                    FOTOGRAFIAS NAVARRO  
+          <img src="../assets/logo.jpg" class="d-inline-block align-top" alt="">         
       </a>
 
 
@@ -12,27 +11,29 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-<!-- borame !-->
+
                      <!-- items -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav text-center ml-auto mr-auto">
-            <a class="nav-item nav-link aHover" routerLink="paquetes-escolares" routerLinkActive="active">Paquetes Escolares</a>
-            <a class="nav-item nav-link aHover" routerLink="identificacion" routerLinkActive="active">Fotografias de Identificacion</a>
-            <a class="nav-item nav-link aHover" routerLink="sesiones" routerLinkActive="active">Sesiones Personalizadas</a>
-            <a class="nav-item nav-link aHover" routerLink="montajes" routerLinkActive="active">Montajes y Restauraciones</a>
-<!--
-            <div class="nav-item dropdown">
+            <a class="nav-item nav-link aHover" routerLink="paquetes-escolares" routerLinkActive="active"><i class="fa fa-book mr-2"></i>Paquetes Escolares</a>
+            <a class="nav-item nav-link aHover" routerLink="identificacion" routerLinkActive="active"><i class="fa fa-address-card-o mr-2"></i>Fotografias de Identificacion</a>
+            <a class="nav-item nav-link aHover" routerLink="sesiones" routerLinkActive="active"><i class="fa fa-picture-o  mr-2"></i>Sesiones Personalizadas</a>
+            <a class="nav-item nav-link aHover" routerLink="montajes" routerLinkActive="active"><i class="fa fa-file-image-o  mr-2"></i>Montajes y Restauraciones</a>
+
+            <div class="nav-item dropdown" *ngIf="this.lS.autheticated">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Mas
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Archivo</a>
-                      <a class="dropdown-item" href="#">Contacto</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item aHover text-light">
+                          <i class="fa fa-home mr-2"></i>
+                          Sucursal 2
+                        </a>
+                        <hr>
+                      <a class="dropdown-item dH text-light" (click)="this.lS.logOut()"><i class="fa fa-sign-out mr-2"></i>LogOut</a>
                     </div>
                 </div>
--->               
+              
         </div>
 
          

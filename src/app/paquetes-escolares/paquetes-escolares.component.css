@@ -2,3 +2,7 @@ img{
     width: 287px;
     height: 190px;
 }
+
+.sombra{
+    box-shadow: 7px 7px 50px;
+}

@@ -1,0 +1,186 @@
+<!-- LOGIN -->
+<div class="container py-5 mt-5" [hidden]="this.lS.autheticated">
+ 
+    <div class="row justify-content-center">
+      <div class="form-group col-sm-12 col-md-6 ">
+        <input type="email" name="email" id="email" class="form-control" 
+               placeholder="email"  [(ngModel)]="email" autocomplete="off" >
+      </div>
+    </div>  
+ 
+    <div class="row justify-content-center">
+      <div class="form-group col-sm-12 col-md-6 ">
+          <input type="password" name="contraseña" id="pass" class="form-control" 
+                 placeholder="password" [(ngModel)]="password" autocomplete="off">
+      </div>
+    </div>  
+    
+    <div class="row justify-content-center">
+      <div class="col-sm-12 col-md-6 mt-2">
+          <button type="submit" class="btn  btn-primary" (click)="logIn()" >
+            Aceptar 
+          </button>
+      </div>
+    </div>  
+
+</div>
+<!-- Fin del Login -->
+
+
+   <!-- Contenedor Uno -->
+  <div class="container" *ngIf="this.lS.autheticated"> 
+    
+    <!-- Fila de el ForMulario -->
+      <div class="row app">   
+
+          <!-- Titulo -->
+            <div class="col-sm-12"> 
+                <h2>{{title}}</h2>
+                <hr>
+            </div> 
+        <!-- Fin del Titulo -->
+
+                 <!-- Inputs -->
+            <div class="form-group col-sm-12 col-md-3 py-4">
+               <label  class=" control-label " for="sucursal">Sucursal: </label>
+               <select name="" id="sucursal"  [(ngModel)]="compra.sucursal"> 
+                  <option value="sucursal 1">Sucursal 1</option>
+                  <option value="sucursal 2">Sucursal 2</option>
+               </select>
+            </div>
+
+            <div class="form-group col-md-3 ">  
+                <label for="nombre" class=" control-label">Nombre:</label>
+                <input type="text"  class="form-control" id="nombre" placeholder="Nombre" [(ngModel)]="compra.nombre" autocomplete="off">
+            </div>
+
+            <div class="form-group col-md-3">
+                <label for="telefono" class=" control-label">Telefono:</label>
+                <input type="text"  class="form-control" id="telefono" placeholder="Telefono" [(ngModel)]="compra.telefono">
+            </div>
+
+            <div class="form-group col-sm-12 col-md-3">
+                <label for="paquete" class=" control-label">Paquete:</label>
+                <input type="text"  class="form-control" id="paquete" placeholder="Paquete" [(ngModel)]="compra.paquete">
+            </div>
+
+            <div class="form-group col-sm-12 col-md-3">
+                <label for="precio" class=" control-label">Precio:</label>
+                <input type="text"  class="form-control" id="precio" placeholder="Precio" [(ngModel)]="compra.costo">
+            </div>
+
+            <div class="form-group col-sm-12 col-md-3">
+                <label for="abono" class=" control-label">Abonó:</label>
+                <input type="text"  class="form-control" id="abono" placeholder="Abonó" [(ngModel)]="compra.abono">
+            </div>
+
+            <div class="form-group col-sm-12 col-md-3 py-4">
+                <label  class=" control-label " for="tipos">Tipo: </label>
+                <select name="" id="tipos"  [(ngModel)]="compra.tipo"> 
+                  <option value="Normal">Normal</option>
+                  <option value="Express">Express</option>
+                  <option value="Envio">Envio</option>
+                </select>
+            </div>
+         <!-- Fin de los Inputs -->     
+        
+
+                    <!-- BOTONES -->
+
+            <div class="col-sm-12" [hidden]="buttonAdd"> 
+              <button type="submit" class="btn  btn-success btn-block" (click)="add()">
+                  <i class="fa fa-plus"> </i> Agregar
+              </button>
+          </div>
+
+          <div class="col-sm-12" [hidden]="buttonToUpDate">
+              <button type="submit" class="btn  btn-success btn-block" (click)="toUpDate()">
+               <i class="fa fa-floppy-o"></i> Guardar
+              </button>
+          </div>
+
+          <div class="col-sm-12 mt-2" [hidden]="buttonViewTable">
+              <button  class="btn  btn-primary btn-block" (click)="viewTable()">
+                  <i class="fa fa-chevron-up"></i>  Mostrar Tabla
+              </button>
+          </div>
+
+          <div class="col-sm-12 mt-2" [hidden]="buttonOcultTable">
+              <button  class="btn  btn-primary btn-block" (click)="downTable()">
+                  <i class="fa fa-chevron-down"></i>  Oultar Tabla
+              </button>
+          </div>
+
+          <div class="col-sm-12 mt-2">
+              <button  class="btn  btn-light btn-block" (click)="cancel()">
+                  <i class="fa fa-ban"></i>  Cancelar
+              </button>
+          </div> 
+        <!--Fin de los  BOTONES -->
+        
+      </div>   
+  <!-- Fin de la  Fila de el ForMulario --> 
+
+
+   <!-- Fila de la Tabla -->
+      
+    <div class="row py-5  app" [hidden]="showTable"> 
+
+        <div class="col-sm-12 ">
+          <h2 class="">Compras Guardadas</h2>
+          <hr>
+        </div>  
+
+        <div class="table-responsive">
+          <table  class="table  table-bordered col-12 table-hover">
+
+            <thead class="text-center">
+                <tr>
+                    <th>id</th>
+                    <th>sucursal</th>
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Paquete</th>
+                    <th>Tipo</th>
+                    <th>Precio</th>
+                    <th>Abonó</th>
+                    <th>Falta</th>
+                    <th>Acciones</th>
+                  </tr>
+            </thead>
+
+            <tbody class="text-center">
+              <tr *ngFor="let c of compras; let i = index">
+                <td>{{i}} </td>
+                <td>{{c.sucursal}} </td>
+                <td>{{c.fecha}}</td>
+                <td>{{c.nombre}}</td>
+                <td>{{c.telefono}}</td>
+                <td>{{c.paquete}}</td>
+                <td>{{c.tipo}}</td>
+                <td>${{c.costo}}</td>
+                <td>${{c.abono}}</td>
+                <td>${{c.costo - c.abono}}</td>
+                <td>
+
+                  <a class="btn btn-success text-light mt-2" (click)="edit(c)" >
+                      <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <a  class="btn btn-danger text-light mt-2" (click)="remove(i)">
+                      <i class="fa fa-trash"></i>
+                 </a>
+
+                </td>
+              </tr> 
+            </tbody>
+
+          </table>
+        </div>  
+    </div>
+   <!-- Fin de la fila de la tabla -->
+    
+    
+</div> 
+<!-- Fin del contenedor uno-->
