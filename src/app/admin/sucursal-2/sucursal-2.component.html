@@ -45,6 +45,10 @@
                  <label for="abono" class=" control-label">Abonó:</label>
                  <input type="number"  class="form-control" id="abono" placeholder="Abonó" [(ngModel)]="compra.payment">
              </div>
+             <div class="form-group col-sm-12 col-md-3" [hidden]="showInput">
+                <label for="nuevoAbono" class=" control-label">Nuevo Abonó:</label>
+                <input type="number"  class="form-control" id="nuevoAbono" placeholder="Nuevo Abonó" [(ngModel)]="compra.newPayment">
+            </div>
  
              <div class="form-group col-sm-12 col-md-3 py-4">
                  <label  class=" control-label " for="tipos">Tipo: </label>
@@ -133,12 +137,12 @@
                  <td>{{c.type}}</td>
                  <td>${{c.cost}}</td>
                  <td>${{c.payment}}</td>
-                 <td>${{c.residuary}}</td>
+                 <td> {{c.s}} {{c.residuary}}</td>
                  <td>
  
                    <a class="btn btn-success text-light mt-2" (click)="edit(c)" >
                        <i class="fa fa-pencil"></i>
-                   </a>
+                   </a> 
  
                    <a  class="btn btn-danger text-light mt-2" (click)="remove(i)">
                        <i class="fa fa-trash"></i>

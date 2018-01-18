@@ -67,12 +67,17 @@
 
             <div class="form-group col-sm-12 col-md-3">
                 <label for="precio" class=" control-label">Precio:</label>
-                <input type="text"  class="form-control" id="precio" placeholder="Precio" [(ngModel)]="compra.costo">
+                <input type="number"  class="form-control" id="precio" placeholder="Precio" [(ngModel)]="compra.costo">
             </div>
 
             <div class="form-group col-sm-12 col-md-3">
                 <label for="abono" class=" control-label">Abonó:</label>
-                <input type="text"  class="form-control" id="abono" placeholder="Abonó" [(ngModel)]="compra.abono">
+                <input type="number"  class="form-control" id="abono" placeholder="Abonó" [(ngModel)]="compra.abono">
+            </div>
+
+            <div class="form-group col-sm-12 col-md-3" [hidden]="showInput">
+                <label for="nuevoAbono" class=" control-label">Nuevo Abonó:</label>
+                <input type="number"  class="form-control" id="nuevoAbono" placeholder="Nuevo Abonó" [(ngModel)]="compra.nuevoAbono">
             </div>
 
             <div class="form-group col-sm-12 col-md-3 py-4">
@@ -161,8 +166,8 @@
                 <td>{{c.paquete}}</td>
                 <td>{{c.tipo}}</td>
                 <td>${{c.costo}}</td>
-                <td>$ {{c.abono}} </td>
-                <td>${{c.restante}}</td>
+                <td>${{c.abono}} </td>
+                <td>{{c.s}}{{c.restante}}</td>
                 <td>
 
                   <a class="btn btn-success text-light mt-2" (click)="edit(c)" >

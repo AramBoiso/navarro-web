@@ -13,7 +13,7 @@ export class Sucursal2Component {
     // OTHERS
     title:string; 
     showTable:boolean;
-    abono:number;
+    showInput:boolean;
     
 
     // BUTTONS  
@@ -54,7 +54,7 @@ export class Sucursal2Component {
       this.compra = {
            id:null, date: null, name: null, phone: null, 
            package: null, cost: null, payment: null, type: null,
-           subsidiary: 'sucursal 2',residuary: null
+           subsidiary: 'sucursal 2',residuary: null, newPayment: null, s:'$'
       };
 
       this.getCompras()
@@ -91,7 +91,16 @@ export class Sucursal2Component {
         add(){
            this.compra.id = Date.now();
            this.compra.date = this.getDate();
-           this.compra.residuary = this.compra.cost -  this.compra.payment;
+
+           this.compra.residuary = this.compra.cost - this.compra.payment;
+           if(this.compra.residuary == 0){
+             this.compra.residuary = 'Pagado';
+             this.compra.s = '';
+           }else{
+            this.compra.s = '$';
+           }
+
+
            this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
            this.clean();
         }
@@ -102,10 +111,27 @@ export class Sucursal2Component {
             this.buttonToUpDate = false;
             this.compra = c;
             this.editing = true;
+            this.showInput = false;
         }
 
         toUpDate(){
           if(this.editing){      
+
+            var me = this;
+            this.compras.forEach((el,i) => {
+            if(el.id === me.compra.id){
+              me.compra.payment += me.compra.newPayment;
+              me.compra.residuary = me.compra.cost - me.compra.payment;
+              if(me.compra.residuary == 0){
+                me.compra.residuary = 'Pagado';
+                me.compra.s = '';
+              }else{
+                this.compra.s = '$';
+              }
+            } 
+            });
+
+            this.compra.newPayment = null;
             this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
           }
           this.buttonToUpDate = true;
@@ -118,8 +144,12 @@ export class Sucursal2Component {
           var answer = confirm('Estas seguro de eliminar el registro?');
           if(answer){
             this.afDB.database.ref('sucursal2/'+this.compras[i].id).remove();
-           //this.compras.splice(i,1);
           }
+          this.title = 'Agregar Compra';
+          this.buttonAdd = false;
+          this.buttonToUpDate = true;
+          this.showInput = true;
+          this.clean();
         }
      
 
@@ -149,7 +179,7 @@ export class Sucursal2Component {
         this.compra = {
           id:null, date: null, name: null, phone: null, 
           package: null, cost: null, payment: null, type: null,
-          subsidiary: 'sucursal 2',residuary: null
+          subsidiary: 'sucursal 2',residuary: null, newPayment: null
         }; 
       }
 

@@ -18,7 +18,8 @@ export class AdminComponent {
     // OTROS
     title:string; 
     showTable:boolean;
-    restante:number;
+    showInput:boolean;
+
     
 
     // BOTONES  
@@ -49,6 +50,7 @@ export class AdminComponent {
         this.title = "Agregar Compra";
         this.showTable = true;
         this.editing = false;
+        this.showInput = true;
      
            //  BOTONES
       this.buttonOcultTable = true;
@@ -61,7 +63,7 @@ export class AdminComponent {
       this.compra = {
                       id:null, fecha: null, nombre: null, telefono: null, 
                       paquete: null, costo:  null, abono: null, tipo: null,
-                      sucursal: 'sucursal 1', restante: null
+                      sucursal: 'sucursal 1', restante: null, nuevoAbono: null, s:'$'
       };
 
       this.getCompras()
@@ -104,25 +106,50 @@ export class AdminComponent {
         add(){
            this.compra.id = Date.now();
            this.compra.fecha = this.getDate();
-           this.compra.restante = this.compra.costo -  this.compra.abono;
-           this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
+
+           this.compra.restante = this.compra.costo - this.compra.abono;
+           if(this.compra.restante == 0){
+             this.compra.restante = 'Pagado';
+             this.compra.s = '';
+           }else{
+            this.compra.s = '$';
+           }
            
-          // this.restante = this.compra.costo - this.compra.abono;
+           this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
+
            this.clean();
         }
 
         edit(c){
             this.title = 'Editar Compra';
+            
             this.buttonAdd = true;
             this.buttonToUpDate = false;
             this.compra = c;
             this.editing = true;
+            this.showInput = false;
         }
 
         toUpDate(){
           if(this.editing){ 
+
+            var me = this;
+            this.compras.forEach((el,i) => {
+            if(el.id === me.compra.id){
+              me.compra.abono += me.compra.nuevoAbono;
+              me.compra.restante = me.compra.costo - me.compra.abono;
+              if(me.compra.restante == 0){
+                me.compra.restante = 'Pagado';
+                me.compra.s = '';
+              }else{
+                this.compra.s = '$';
+              }
+            } 
+            });
+
+            this.compra.nuevoAbono = null;
             this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
-          
+            
           }
           this.buttonToUpDate = true;
           this.buttonAdd = false;
@@ -134,8 +161,12 @@ export class AdminComponent {
           var answer = confirm('Estas seguro de eliminar el registro?');
           if(answer){
             this.afDB.database.ref('registros/'+this.compras[i].id).remove();
-           //this.compras.splice(i,1);
           }
+          this.title = 'Agregar Compra';
+          this.buttonAdd = false;
+          this.buttonToUpDate = true;
+          this.showInput = true;
+          this.clean();
         }
      
 
@@ -165,7 +196,7 @@ export class AdminComponent {
         this.compra = {
           fecha: null, nombre: null, telefono: null, 
           paquete: null, costo: null, abono: null, tipo:null,
-          sucursal:'sucursal 1', restante: null
+          sucursal:'sucursal 1', restante: null, nuevoAbono: null
 
         }; 
       }
