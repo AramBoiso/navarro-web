@@ -6,7 +6,9 @@ import { Marker } from '@agm/core/services/google-maps-types';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
+
+  
   lat: number = 19.699783;
   lng: number = -103.464580;
 
@@ -39,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ 
 }
 
 interface marker{
@@ -47,5 +49,6 @@ interface marker{
   lat: number;
   lng:number;
   draggable: boolean;
+ 
 
 }

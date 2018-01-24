@@ -31,10 +31,8 @@ export class LoginService {
     this.af.auth.signInWithEmailAndPassword(this.email, this.password)
      .catch(error =>{
        console.log(error);
-     })
-     alert("Bienvenido ADMIN");
-    this.autheticated = true;
-
+       alert("Accion Invalida");
+     })    
   }
 
   logOut(){
