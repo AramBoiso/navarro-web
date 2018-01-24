@@ -5,38 +5,31 @@
 
       <h1 class="text-center mb-5"> <i class="fa fa-camera-retro  mr-2"></i>FOTOGRAFIA NAVARRO </h1>
 
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio, obcaecati necessitatibus eaque debitis dolorem quis assumenda culpa molestiae. Cumque, assumenda ut earum sed consequuntur nisi praesentium corporis sequi.
-      Veritatis, ea, pariatur nesciunt ut atque iure impedit deleniti enim omnis cum facere corporis consectetur maiores rerum est dolore libero hic alias ab repudiandae. Provident ut corporis asperiores laborum natus.
-      Cupiditate labore commodi voluptates temporibus ex odio esse provident? Id libero hic accusamus perferendis voluptates ullam quaerat illo ipsa reprehenderit, doloribus soluta eum deserunt possimus illum iure laborum corrupti provident?
-      Officia, eaque officiis. Repudiandae, perferendis! Laborum inventore esse suscipit, voluptatum facilis ad cupiditate odit veritatis doloribus temporibus minima et error magnam neque eius cum doloremque atque soluta recusandae possimus voluptates.
-      Illo, sequi earum. Reprehenderit, perspiciatis nostrum! Culpa maxime ex accusamus quidem quam ducimus fugit ea quasi repellat tenetur est, impedit ratione deserunt ab neque nostrum pariatur. Quam autem odit dignissimos.</p>
 
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio, obcaecati necessitatibus eaque debitis dolorem quis assumenda culpa molestiae. Cumque, assumenda ut earum sed consequuntur nisi praesentium corporis sequi.
-    Veritatis, ea, pariatur nesciunt ut atque iure impedit deleniti enim omnis cum facere corporis consectetur maiores rerum est dolore libero hic alias ab repudiandae. Provident ut corporis asperiores laborum natus.
-    Cupiditate labore commodi voluptates temporibus ex odio esse provident? Id libero hic accusamus perferendis voluptates ullam quaerat illo ipsa reprehenderit, doloribus soluta eum deserunt possimus illum iure laborum corrupti provident?
-    Officia, eaque officiis. Repudiandae, perferendis! Laborum inventore esse suscipit, voluptatum facilis ad cupiditate odit veritatis doloribus temporibus minima et error magnam neque eius cum doloremque atque soluta recusandae possimus voluptates.
-    Illo, sequi earum. Reprehenderit, perspiciatis nostrum! Culpa maxime ex accusamus quidem quam ducimus fugit ea quasi repellat tenetur est, impedit ratione deserunt ab neque nostrum pariatur. Quam autem odit dignissimos.</p>
+     <h2 class="text-center mt-5 pt-5"><i class="fa fa-map-marker"></i> SUCURSALES</h2>
+     <hr>
 
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio, obcaecati necessitatibus eaque debitis dolorem quis assumenda culpa molestiae. Cumque, assumenda ut earum sed consequuntur nisi praesentium corporis sequi.
-    Veritatis, ea, pariatur nesciunt ut atque iure impedit deleniti enim omnis cum facere corporis consectetur maiores rerum est dolore libero hic alias ab repudiandae. Provident ut corporis asperiores laborum natus.
-    Cupiditate labore commodi voluptates temporibus ex odio esse provident? Id libero hic accusamus perferendis voluptates ullam quaerat illo ipsa reprehenderit, doloribus soluta eum deserunt possimus illum iure laborum corrupti provident?
-    Officia, eaque officiis. Repudiandae, perferendis! Laborum inventore esse suscipit, voluptatum facilis ad cupiditate odit veritatis doloribus temporibus minima et error magnam neque eius cum doloremque atque soluta recusandae possimus voluptates.
-    Illo, sequi earum. Reprehenderit, perspiciatis nostrum! Culpa maxime ex accusamus quidem quam ducimus fugit ea quasi repellat tenetur est, impedit ratione deserunt ab neque nostrum pariatur. Quam autem odit dignissimos.</p>
+     <div class="row py-5 d-flex justify-content-center">
 
+        <div class="col-sm-12 col-lg-6 mb-5">
+            <h2 class="text-center"><i class="fa fa-map-marker"></i> SUCURSAL 1</h2>
+            <hr>
+            <agm-map [latitude]="lat"  [longitude]="lng"  [zoom]="zoom" 
+                    [zoomControl]="false">
+                <agm-marker [latitude]="markers[0].lat" [longitude]="markers[0].lng" > </agm-marker> 
+            </agm-map>
+        </div>
 
-     <h2 class="text-center  mb-5"><i class="fa fa-map mr-2"></i>SUCURSALES</h2>
+        <div class="col-sm-12 col-lg-6">
+            <h2 class="text-center"><i class="fa fa-map-marker"></i> SUCURSAL 2</h2>
+            <hr>
+            <agm-map [latitude]="lat2" [longitude]="lng2" [zoom]="zoom2" 
+                     [zoomControl]="false">
+                <agm-marker [latitude]="markers[1].lat" [longitude]="markers[1].lng"></agm-marker>
+            </agm-map>
+        </div>
 
-     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio, obcaecati necessitatibus eaque debitis dolorem quis assumenda culpa molestiae. Cumque, assumenda ut earum sed consequuntur nisi praesentium corporis sequi.
-    Veritatis, ea, pariatur nesciunt ut atque iure impedit deleniti enim omnis cum facere corporis consectetur maiores rerum est dolore libero hic alias ab repudiandae. Provident ut corporis asperiores laborum natus.
-    Cupiditate labore commodi voluptates temporibus ex odio esse provident? Id libero hic accusamus perferendis voluptates ullam quaerat illo ipsa reprehenderit, doloribus soluta eum deserunt possimus illum iure laborum corrupti provident?
-    Officia, eaque officiis. Repudiandae, perferendis! Laborum inventore esse suscipit, voluptatum facilis ad cupiditate odit veritatis doloribus temporibus minima et error magnam neque eius cum doloremque atque soluta recusandae possimus voluptates.
-    Illo, sequi earum. Reprehenderit, perspiciatis nostrum! Culpa maxime ex accusamus quidem quam ducimus fugit ea quasi repellat tenetur est, impedit ratione deserunt ab neque nostrum pariatur. Quam autem odit dignissimos.</p>
-
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio, obcaecati necessitatibus eaque debitis dolorem quis assumenda culpa molestiae. Cumque, assumenda ut earum sed consequuntur nisi praesentium corporis sequi.
-    Veritatis, ea, pariatur nesciunt ut atque iure impedit deleniti enim omnis cum facere corporis consectetur maiores rerum est dolore libero hic alias ab repudiandae. Provident ut corporis asperiores laborum natus.
-    Cupiditate labore commodi voluptates temporibus ex odio esse provident? Id libero hic accusamus perferendis voluptates ullam quaerat illo ipsa reprehenderit, doloribus soluta eum deserunt possimus illum iure laborum corrupti provident?
-    Officia, eaque officiis. Repudiandae, perferendis! Laborum inventore esse suscipit, voluptatum facilis ad cupiditate odit veritatis doloribus temporibus minima et error magnam neque eius cum doloremque atque soluta recusandae possimus voluptates.
-    Illo, sequi earum. Reprehenderit, perspiciatis nostrum! Culpa maxime ex accusamus quidem quam ducimus fugit ea quasi repellat tenetur est, impedit ratione deserunt ab neque nostrum pariatur. Quam autem odit dignissimos.</p>
+     </div>
 
    </section>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ImagesService} from '../services/images.service';
 
 @Component({
   selector: 'app-sesiones',
@@ -7,7 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SesionesComponent implements OnInit {
 
-  constructor() { }
+  sessionsCustom:Array<any>;
+  title:string;
+  vistaPrevia:boolean;
+  image:any;
+
+  constructor(public images:ImagesService) { 
+    this.title = 'SESIONES PERSONALIZADAS';
+    this.sessionsCustom = images.thumbnailsCustom;
+    this.vistaPrevia = true;
+  }
+
+  vista(index){
+     this.image = this.images.thumbnailsCustom[index].imgUrl;
+    this.vistaPrevia = false;
+  }
+
+  ocultar(){
+    this.vistaPrevia = true;
+  }
 
   ngOnInit() {
   }

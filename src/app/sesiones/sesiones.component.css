@@ -6,3 +6,11 @@ img{
 .sombra{
     box-shadow: 7px 7px 50px;
 }
+
+
+.vistaPrevia{
+    width: 100%;
+    height: 100vh;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px;
+}

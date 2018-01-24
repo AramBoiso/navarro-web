@@ -14,7 +14,7 @@ import { MontajesComponent } from './montajes/montajes.component';
 
 import { routes } from './app.routes';
 import { AdminComponent } from './admin/admin.component';
-import { ModalComponent } from './extra-components/modal.component';
+
 
 import {AngularFireModule} from 'angularfire2';
 import{AngularFirestoreModule}  from 'angularfire2/firestore';
@@ -25,6 +25,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FooterComponent } from './extra-components/footer.component';
 import { LoginService } from './services/login.service';
 import { Sucursal2Component } from './admin/sucursal-2/sucursal-2.component';
+
+import {ImagesService} from './services/images.service';
+import { CbtisComponent } from './paquetes-escolares/cbtis/cbtis.component';
+import { TecComponent } from './paquetes-escolares/tec/tec.component';
+import { CusComponent } from './paquetes-escolares/cus/cus.component';
+import { UniverComponent } from './paquetes-escolares/univer/univer.component';
+
+
+import { CommonModule } from '@angular/common';
+import { AgmCoreModule } from '@agm/core'
+
 
 
 
@@ -51,9 +62,13 @@ var config = {
     SesionesComponent,
     MontajesComponent,
     AdminComponent,
-    ModalComponent,
     FooterComponent,
-    Sucursal2Component
+    Sucursal2Component,
+    CbtisComponent,
+    TecComponent,
+    CusComponent,
+    UniverComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -63,9 +78,15 @@ var config = {
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+    BrowserModule,
+    CommonModule,
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyChej5-Kj0DOe80Jl_IIHPYy8NsH2lYRxk'
+    })
   ],
-  providers: [LoginService],
+  providers: [LoginService,ImagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

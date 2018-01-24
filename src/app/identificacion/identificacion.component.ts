@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ImagesService} from '../services/images.service';
 
 @Component({
   selector: 'app-identificacion',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdentificacionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public images:ImagesService) { }
 
   ngOnInit() {
   }
