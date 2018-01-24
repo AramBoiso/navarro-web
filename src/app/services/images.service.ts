@@ -5,9 +5,11 @@ export class ImagesService {
 
   thumbnails:Array<any>;
   thumbnailsCustom:Array<any>;
+  restauracionesImages:Array<any>;
   packagesSchoolImages:object;
   identificationImages:object;
-  restauracionesImages:Array<any>;
+  coruselImages:object;
+ 
 
   constructor() {
     
@@ -95,6 +97,12 @@ export class ImagesService {
         restaurada:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/restauraciones%2FUntitled-3-copy.jpg?alt=media&token=492acbae-1f8e-432f-a9e9-1a2e7da0f201' 
       }
   ];
+
+  this.coruselImages = {
+    image1:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/home%2FImagen-07.jpg?alt=media&token=851a2f7f-14c4-42f4-8e95-825a1f996f38',
+    image2:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/home%2FImagen-01.jpg?alt=media&token=8d154004-cc40-4277-aaaf-b7e93fb1ae43',
+    image3:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/home%2FImagen-08.jpg?alt=media&token=6288d209-b928-47bd-9ee2-f64cbbb2a113'
+  }
 
     
    }

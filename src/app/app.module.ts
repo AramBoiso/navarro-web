@@ -49,7 +49,7 @@ var config = {
   messagingSenderId: "1073866254692"
 };
 
-
+//AIzaSyChej5-Kj0DOe80Jl_IIHPYy8NsH2lYRxk
 
 @NgModule({
   declarations: [
@@ -83,7 +83,7 @@ var config = {
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyChej5-Kj0DOe80Jl_IIHPYy8NsH2lYRxk'
+      apiKey: 'AIzaSyAqOG8IyavjBDut2qTMyMj8wRCAQ-nXL2s'
     })
   ],
   providers: [LoginService,ImagesService],
