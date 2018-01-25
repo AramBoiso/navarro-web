@@ -1,6 +1,7 @@
 img{
 
-    height: 100vh;
+    width: 100%;
+    height: auto;
     background-size: cover;
     background-position: center;
 
@@ -11,3 +12,5 @@ background: black;
 height: 30px;
 width: 100%;
 }
+
+

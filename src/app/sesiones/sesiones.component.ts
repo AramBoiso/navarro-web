@@ -14,7 +14,7 @@ export class SesionesComponent implements OnInit {
   image:any;
 
   constructor(public images:ImagesService) { 
-    this.title = 'SESIONES PERSONALIZADAS';
+    this.title = 'SESIONES';
     this.sessionsCustom = images.thumbnailsCustom;
     this.vistaPrevia = true;
   }

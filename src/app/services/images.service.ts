@@ -6,28 +6,28 @@ export class ImagesService {
   thumbnails:Array<any>;
   thumbnailsCustom:Array<any>;
   restauracionesImages:Array<any>;
-  packagesSchoolImages:object;
-  identificationImages:object;
-  coruselImages:object;
+  packagesSchoolImages:any;
+  identificationImages:any;
+  coruselImages:any;
  
 
   constructor() {
     
     this.thumbnails = [
       {
-      title:'CBTIS 226', description:'Paquetes de CBTis 226', alt:'CBTis 226 logo', route:'/cbtis',
+      title:'CBTIS 226', description:'Paquetes CBTis 226', alt:'CBTis 226 logo', route:'/cbtis',
       imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/thumbnailsSchool%2Fcbtis.jpg?alt=media&token=986d5345-c8cc-4600-9fe5-7f38bf80ce5b'
       },
       {
-        title:'ITG', description:'Paquetes del ITG', alt:'ITG logo',  route:'/tec',
+        title:'ITG', description:'Paquetes ITG', alt:'ITG logo',  route:'/tec',
         imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/thumbnailsSchool%2Ftec.png?alt=media&token=9bbcd587-bcdc-4788-a58f-aca8e7164304'
       },
       {
-        title:'CuSur', description:'Paquetes del CuSur', alt:'CuSur logo',  route:'/cus',
+        title:'CuSur', description:'Paquetes  CuSur', alt:'CuSur logo',  route:'/cus',
         imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/thumbnailsSchool%2Fcus.jpg?alt=media&token=457e99c4-94d5-4fc5-b9fa-d83ae98a0683'
       },
        {
-        title:'Univer', description:'Paquetes de la Univer', alt:'Univer logo',  route:'/univer',
+        title:'Univer', description:'Paquetes Univer', alt:'Univer logo',  route:'/univer',
         imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/thumbnailsSchool%2Funiver.jpg?alt=media&token=5b80fdcb-e45f-43ad-ae54-f4a8bccfc1eb'
       }
       
