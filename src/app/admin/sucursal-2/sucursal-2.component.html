@@ -51,6 +51,11 @@
                 <label for="nuevoAbono" class=" control-label">Nuevo Abonó:</label>
                 <input type="number"  class="form-control" id="nuevoAbono" placeholder="Nuevo Abonó" [(ngModel)]="compra.newPayment">
             </div>
+
+            <div class="form-group col-sm-12 col-md-3">
+                    <label for="file" class=" control-label">Archivo:</label>
+                    <input type="date"  class="form-control" id="file" [(ngModel)]="compra.file">
+            </div>
  
              <div class="form-group col-sm-12 col-md-3 py-4">
                  <label  class=" control-label " for="tipos">Tipo: </label>
@@ -114,13 +119,14 @@
  
              <thead class="text-center">
                  <tr>
-                     <th>id</th>
-                     <th>sucursal</th>
+                  <!--   <th>id</th> -->
+                     <th>Sucursal</th>
                      <th>Fecha</th>
                      <th>Nombre</th>
                      <th>Telefono</th>
                      <th>Paquete</th>
                      <th>Tipo</th>
+                     <th>Archivo</th>
                      <th>Precio</th>
                      <th>Abonó</th>
                      <th>Falta</th>
@@ -130,13 +136,14 @@
  
              <tbody class="text-center">
                <tr *ngFor="let c of compras; let i = index">
-                 <td>{{i}} </td>
+              <!--   <td>{{i}} </td> -->
                  <td>{{c.subsidiary}} </td>
                  <td>{{c.date}}</td>
                  <td>{{c.name}}</td>
                  <td>{{c.phone}}</td>
                  <td>{{c.package}}</td>
                  <td>{{c.type}}</td>
+                 <td>{{c.file}}</td>
                  <td>${{c.cost}}</td>
                  <td>${{c.payment}}</td>
                  <td> {{c.s}} {{c.residuary}}</td>

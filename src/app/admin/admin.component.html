@@ -81,22 +81,34 @@
                 <input type="number"  class="form-control" id="nuevoAbono" placeholder="Nuevo Abonó" [(ngModel)]="compra.nuevoAbono">
             </div>
 
+            <div class="form-group col-sm-12 col-md-3">
+                    <label for="archivo" class=" control-label">Archivo:</label>
+                    <input type="date"  class="form-control" id="archivo" [(ngModel)]="compra.archivo">
+            </div>
+    
+
+
+
             <div class="form-group col-sm-12 col-md-3 py-4">
                 <label  class=" control-label " for="tipos">Tipo: </label>
-                <select name="" id="tipos"  [(ngModel)]="compra.tipo"> 
+                <select name="" id="tipos"  [(ngModel)]="compra.tipo">   
                   <option value="Normal">Normal</option>
                   <option value="Express">Express</option>
                   <option value="Envio">Envio</option>
                 </select>
             </div>
+
+            
+          
+           
          <!-- Fin de los Inputs -->     
         
 
-                    <!-- BOTONES -->
+                    <!-- BOTONES --> 
 
             <div class="col-sm-12" [hidden]="buttonAdd"> 
               <button type="submit" class="btn  btn-success btn-block" (click)="add()">
-                  <i class="fa fa-plus"> </i> Agregar
+                  <i class="fa fa-plus"> </i> Agregar Compra
               </button>
           </div>
 
@@ -130,7 +142,7 @@
 
 
    <!-- Fila de la Tabla -->
-      
+
     <div class="row py-5  app" [hidden]="showTable"> 
 
         <div class="col-sm-12 ">
@@ -143,13 +155,14 @@
 
             <thead class="text-center">
                 <tr>
-                    <th>id</th>
-                    <th>sucursal</th>
+                 <!--   <th>id</th> -->
+                    <th>Sucursal</th>
                     <th>Fecha</th>
                     <th>Nombre</th>
                     <th>Telefono</th>
                     <th>Paquete</th>
                     <th>Tipo</th>
+                    <th>Archivo</th>
                     <th>Precio</th>
                     <th>Abonó</th>
                     <th>Falta</th>
@@ -159,13 +172,14 @@
 
             <tbody class="text-center">
               <tr *ngFor="let c of compras; let i = index">
-                <td>{{i}} </td>
+             <!--   <td>{{i}} </td> -->
                 <td>{{c.sucursal}} </td>
                 <td>{{c.fecha}}</td>
                 <td>{{c.nombre}}</td>
                 <td>{{c.telefono}}</td>
                 <td>{{c.paquete}}</td>
                 <td>{{c.tipo}}</td>
+                <td>{{c.archivo}}</td>
                 <td>${{c.costo}}</td>
                 <td>${{c.abono}} </td>
                 <td>{{c.s}}{{c.restante}}</td>

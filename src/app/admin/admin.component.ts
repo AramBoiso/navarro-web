@@ -19,6 +19,8 @@ export class AdminComponent {
     title:string; 
     showTable:boolean;
     showInput:boolean;
+   
+
 
     
 
@@ -27,6 +29,8 @@ export class AdminComponent {
     buttonViewTable:boolean;
     buttonToUpDate:boolean;
     buttonAdd:boolean;
+  
+    
 
     // Registros
     compras: any;
@@ -63,7 +67,8 @@ export class AdminComponent {
       this.compra = {
                       id:null, fecha: null, nombre: null, telefono: null, 
                       paquete: null, costo:  null, abono: null, tipo: null,
-                      sucursal: 'sucursal 1', restante: null, nuevoAbono: null, s:'$'
+                      sucursal: '1', restante: null, nuevoAbono: null, s:'$',
+                      archivo:null
       };
 
       this.getCompras()
@@ -99,6 +104,8 @@ export class AdminComponent {
 
       // METODOS DEL REGISTRO  
 
+        
+
         getCompras(){
           return this.afDB.list('/registros').valueChanges();
         }
@@ -128,25 +135,39 @@ export class AdminComponent {
             this.compra = c;
             this.editing = true;
             this.showInput = false;
+        
         }
 
         toUpDate(){
           if(this.editing){ 
 
             var me = this;
+
             this.compras.forEach((el,i) => {
             if(el.id === me.compra.id){
-              me.compra.abono += me.compra.nuevoAbono;
+              
+                if(me.compra.nuevoAbono == null){
+                  me.compra.nuevoAbono = 0;
+                  me.compra.abono += me.compra.nuevoAbono;
+                }else{
+                  me.compra.abono += me.compra.nuevoAbono;
+                }
+              
               me.compra.restante = me.compra.costo - me.compra.abono;
+
               if(me.compra.restante == 0){
+
                 me.compra.restante = 'Pagado';
                 me.compra.s = '';
+
               }else{
-                this.compra.s = '$';
+
+                me.compra.s = '$';
               }
             } 
+           
             });
-
+            this.showInput = true;
             this.compra.nuevoAbono = null;
             this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
             
@@ -196,7 +217,8 @@ export class AdminComponent {
         this.compra = {
           fecha: null, nombre: null, telefono: null, 
           paquete: null, costo: null, abono: null, tipo:null,
-          sucursal:'sucursal 1', restante: null, nuevoAbono: null
+          sucursal:'1', restante: null, nuevoAbono: null,
+          archivo:null
 
         }; 
       }

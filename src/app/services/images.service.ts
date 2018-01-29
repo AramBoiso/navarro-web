@@ -50,7 +50,7 @@ export class ImagesService {
         imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/Sesiones%2Fbautizo.jpg?alt=media&token=a95b3321-6159-4cfd-bf89-19c4c13389a5'
         },
       {
-        title:'Primera Comunion', description:'Primera Comunion', alt:'Primera Comunion',
+        title:'Primera Comunión', description:'Primera Comunion', alt:'Primera Comunion',
         imgUrl:'https://firebasestorage.googleapis.com/v0/b/navarro-web.appspot.com/o/Sesiones%2Fprimera.jpg?alt=media&token=696c09ad-bd3d-4a7f-8466-f78fc3272c0a'
         }
     ];

@@ -42,6 +42,7 @@ export class Sucursal2Component {
         this.title = "Agregar Compra";
         this.showTable = true;
         this.editing = false;
+        this.showInput = true;
      
            //  BUTTONS
       this.buttonOcultTable = true;
@@ -54,7 +55,8 @@ export class Sucursal2Component {
       this.compra = {
            id:null, date: null, name: null, phone: null, 
            package: null, cost: null, payment: null, type: null,
-           subsidiary: 'sucursal 2',residuary: null, newPayment: null, s:'$'
+           subsidiary: '2',residuary: null, newPayment: null, s:'$',
+           file: null
       };
 
       this.getCompras()
@@ -120,7 +122,14 @@ export class Sucursal2Component {
             var me = this;
             this.compras.forEach((el,i) => {
             if(el.id === me.compra.id){
-              me.compra.payment += me.compra.newPayment;
+              
+              if(me.compra.newPayment == null){
+                me.compra.newPayment = 0;
+                me.compra.payment += me.compra.newPayment;
+              }else{
+                me.compra.payment += me.compra.newPayment;
+              }
+              
               me.compra.residuary = me.compra.cost - me.compra.payment;
               if(me.compra.residuary == 0){
                 me.compra.residuary = 'Pagado';
@@ -134,6 +143,7 @@ export class Sucursal2Component {
             this.compra.newPayment = null;
             this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
           }
+          this.showInput = true;
           this.buttonToUpDate = true;
           this.buttonAdd = false;
           this.title = 'Agregar Compra';
@@ -172,6 +182,7 @@ export class Sucursal2Component {
         this.title = "Agregar Compra";
         this.buttonAdd = false;
         this.buttonToUpDate = true;
+        this.showInput = true;
         this.clean();
       }
 
@@ -179,7 +190,8 @@ export class Sucursal2Component {
         this.compra = {
           id:null, date: null, name: null, phone: null, 
           package: null, cost: null, payment: null, type: null,
-          subsidiary: 'sucursal 2',residuary: null, newPayment: null
+          subsidiary: '2',residuary: null, newPayment: null,
+          file: null
         }; 
       }
 
