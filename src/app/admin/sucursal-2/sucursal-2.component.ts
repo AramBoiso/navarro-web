@@ -71,8 +71,6 @@ export class Sucursal2Component {
       
   }
 
-
-
     //  METHOD FOR DATE GET 
        getDate(){
         this.months = ['01', '02', '03', '04', '05',, '06', '07', '08', '09', '10', '11', '12'];
@@ -91,6 +89,9 @@ export class Sucursal2Component {
         }
       
         add(){
+          if(this.compra.name == null || this.compra.phone == null || this.compra.cost == null){
+            alert("ACCION INVALIDA, asegurese de llenar los siguintes campos del formulario: 'Nombre, Telefono, Precio'")
+         }else{
            this.compra.id = Date.now();
            this.compra.date = this.getDate();
 
@@ -102,9 +103,9 @@ export class Sucursal2Component {
             this.compra.s = '$';
            }
 
-
            this.afDB.database.ref('sucursal2/'+this.compra.id).set(this.compra);
            this.clean();
+          }
         }
 
         edit(c){

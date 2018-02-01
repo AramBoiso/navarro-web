@@ -111,20 +111,25 @@ export class AdminComponent {
         }
       
         add(){
-           this.compra.id = Date.now();
-           this.compra.fecha = this.getDate();
-
-           this.compra.restante = this.compra.costo - this.compra.abono;
-           if(this.compra.restante == 0){
-             this.compra.restante = 'Pagado';
-             this.compra.s = '';
-           }else{
-            this.compra.s = '$';
-           }
-           
-           this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
-
-           this.clean();
+          if(this.compra.nombre == null || this.compra.telefono == null || this.compra.costo == null){
+                 alert("ACCION INVALIDA, asegurese de llenar los siguintes campos del formulario: 'Nombre, Telefono, Precio'")
+          }else{
+            this.compra.id = Date.now();
+            this.compra.fecha = this.getDate();
+ 
+            this.compra.restante = this.compra.costo - this.compra.abono;
+            if(this.compra.restante == 0){
+              this.compra.restante = 'Pagado';
+              this.compra.s = '';
+            }else{
+             this.compra.s = '$';
+            }
+            
+            this.afDB.database.ref('registros/'+this.compra.id).set(this.compra);
+ 
+            this.clean();
+          }
+          
         }
 
         edit(c){
@@ -179,7 +184,7 @@ export class AdminComponent {
         }
 
         remove(i){
-          var answer = confirm('Estas seguro de eliminar el registro?');
+          var answer = confirm('El registro se eliminara');
           if(answer){
             this.afDB.database.ref('registros/'+this.compras[i].id).remove();
           }
